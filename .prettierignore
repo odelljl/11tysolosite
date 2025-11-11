@@ -1,0 +1,7 @@
+
+# Build output
+_site/
+node_modules/
+
+# Package files
+package-lock.json
