@@ -1,10 +1,16 @@
 ---
 layout: layout.liquid
 ---
-<article class='prose lg:prose-xl mx-auto p-4'>
-  <h2>{{ title }}</h2>
-  <p>
-    <em>{{ date | date: '%B %d, %Y' }}</em>
-  </p>
-  {{ content }}
-</article>
+<div class='max-w-5xl mx-auto'>
+  <div class='bg-gradient-to-br from-amber-50/80 to-stone-100/80 backdrop-blur-sm rounded-lg p-8 shadow-lg border border-amber-200/50'>
+    <article class='prose lg:prose-xl max-w-none'>
+      <h2 class='text-amber-900'>{{ title }}</h2>
+      <p class='text-amber-700'>
+        <em>{{ date | date: '%B %d, %Y' }}</em>
+      </p>
+      <div class='text-gray-800'>
+        {{ content }}
+      </div>
+    </article>
+  </div>
+</div>

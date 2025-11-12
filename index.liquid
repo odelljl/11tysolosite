@@ -2,14 +2,23 @@
 layout: layout.liquid
 title: Home
 ---
-<h2 class='text-2xl font-bold mb-4'>Recent Posts</h2>
-<ul class='space-y-2'>
-  {% for post in collections.posts reversed %}
-    <li>
-      <a href='{{ post.url }}' class='text-indigo-600 hover:text-indigo-800'>
-        {{- post.data.title -}}
-      </a>
-      <small class='text-gray-500'>({{ post.date | date: '%Y-%m-%d' }})</small>
-    </li>
-  {% endfor %}
-</ul>
+<div class='max-w-5xl mx-auto'>
+  <div class='bg-gradient-to-br from-amber-50/80 to-stone-100/80 backdrop-blur-sm rounded-lg p-6 shadow-lg border border-amber-200/50'>
+    <h2 class='text-2xl font-bold mb-4 text-amber-900'>Recent Posts</h2>
+    <ul class='space-y-3'>
+      {% for post in collections.posts reversed %}
+        <li class='hover:bg-amber-100/30 p-2 rounded transition-colors'>
+          <a
+            href='{{ post.url }}'
+            class='text-amber-700 hover:text-amber-900 font-medium'
+          >
+            {{- post.data.title -}}
+          </a>
+          <small class='text-amber-600/70 ml-2'
+            >({{ post.date | date: '%Y-%m-%d' }})</small
+          >
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
