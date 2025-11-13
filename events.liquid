@@ -1,0 +1,82 @@
+---
+layout: layout.liquid
+title: Events
+permalink: /events/index.html
+---
+{%- comment -%}
+LiquidJS (used by Eleventy) doesn't support piping filters inside where_exp expressions.
+So we avoid where_exp and do comparisons inside loops using epoch seconds.
+{%- endcomment -%}
+
+{%- assign now_epoch = 'now' | date: '%s' | plus: 0 -%}
+{%- assign events_sorted = events | sort: 'date' -%}
+
+{%- comment -%} Pre-count upcoming and past to drive empty-state logic {%- endcomment -%}
+{%- assign upcoming_count = 0 -%}
+{%- for e in events -%}
+  {%- assign e_epoch = e.date | date: '%s' | plus: 0 -%}
+  {%- if e_epoch >= now_epoch -%}
+    {%- assign upcoming_count = upcoming_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<div class='max-w-5xl mx-auto'>
+  <h2 class='text-2xl font-bold mb-4 text-amber-900'>Upcoming Events</h2>
+  {% if upcoming_count > 0 %}
+    <ul class='space-y-3'>
+      {% for e in events_sorted %}
+        {% assign e_epoch = e.date | date: '%s' | plus: 0 %}
+        {% if e_epoch >= now_epoch %}
+          <li class='bg-white/90 rounded-lg p-4 shadow border border-amber-200/50'>
+            <div class='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2'>
+              <div>
+                <div class='font-semibold text-amber-900'>{{ e.title }}</div>
+                <div class='text-sm text-amber-700/80'>
+                  {{ e.date | date: '%A, %B %e, %Y @ %l:%M %p' }}
+                  {% if e.venue %} · {{ e.venue }}{% endif %}
+                  {% if e.city %} · {{ e.city }}{% endif %}
+                </div>
+                {% if e.notes %}
+                  <div class='text-sm text-gray-600 mt-1'>{{ e.notes }}</div>
+                {% endif %}
+              </div>
+              {% if e.url %}
+                <a
+                  href='{{ e.url }}'
+                  class='self-start sm:self-auto bg-amber-700/10 hover:bg-amber-700/20 text-amber-800 font-medium px-3 py-2 rounded-lg border border-amber-200 transition'
+                >Details</a>
+              {% endif %}
+            </div>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class='text-gray-600'>No upcoming events right now — check back soon!</p>
+  {% endif %}
+
+  {%- comment -%} Past events (reverse chronological) {%- endcomment -%}
+  {%- assign past_count = 0 -%}
+  {%- for e in events -%}
+    {%- assign e_epoch = e.date | date: '%s' | plus: 0 -%}
+    {%- if e_epoch < now_epoch -%}
+      {%- assign past_count = past_count | plus: 1 -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {% if past_count > 0 %}
+    <h3 class='text-xl font-semibold mt-8 mb-3 text-amber-900'>Past Events</h3>
+    <ul class='space-y-2'>
+      {% assign events_sorted_desc = events_sorted | reverse %}
+      {% for e in events_sorted_desc %}
+        {% assign e_epoch = e.date | date: '%s' | plus: 0 %}
+        {% if e_epoch < now_epoch %}
+          <li class='text-sm text-gray-600'>
+            {{ e.date | date: '%Y-%m-%d' }} — {{ e.title -}}
+            {%- if e.venue %} @ {{ e.venue }}{% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>

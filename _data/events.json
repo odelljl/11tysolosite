@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Acoustic Evening at Riverside Cafe",
+    "date": "2025-12-05T19:00:00-05:00",
+    "venue": "Riverside Cafe",
+    "city": "Anytown, MA",
+    "url": "https://maps.google.com/?q=Riverside+Cafe+Anytown+MA",
+    "notes": "Two 45-minute sets."
+  },
+  {
+    "title": "Holiday Market Performance",
+    "date": "2025-12-12T18:30:00-05:00",
+    "venue": "Town Hall",
+    "city": "Anytown, MA",
+    "url": "https://example.com/tickets",
+    "notes": "Family friendly, free entry."
+  },
+  {
+    "title": "Summer Porch Session",
+    "date": "2025-08-10T17:00:00-04:00",
+    "venue": "Maple Street",
+    "city": "Anytown, MA",
+    "url": null,
+    "notes": "Neighborhood gathering."
+  }
+]
