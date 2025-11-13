@@ -1,6 +1,13 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('assets');
 
+  // Custom collection: posts ordered by markdown file name descending
+  eleventyConfig.addCollection('postsByFileNameDesc', (collectionApi) => {
+    return collectionApi
+      .getFilteredByGlob('posts/*.md')
+      .sort((a, b) => b.fileSlug.localeCompare(a.fileSlug, undefined, { numeric: true, sensitivity: 'base' }));
+  });
+
   return {
     dir: {
       input: '.',
