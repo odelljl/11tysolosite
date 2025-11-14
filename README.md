@@ -1,6 +1,3 @@
----
-title: Read Me
----
 # README.md
 
 ## Project Development
