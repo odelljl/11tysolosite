@@ -5,7 +5,7 @@ permalink: /media/index.html
 ---
 <div class='max-w-5xl mx-auto'>
   <h2 class='text-2xl font-bold mb-4 text-amber-900'>Media</h2>
-  {% assign items = media %}
+  {% assign items = media | sort: 'sort' | reverse %}
   {% if items and items.size > 0 %}
     <div class='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
       {% for m in items %}

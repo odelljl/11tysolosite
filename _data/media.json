@@ -1,0 +1,25 @@
+[
+  {
+    "sort": "00003",
+    "type": "youtube",
+    "id": "NGMesPoqSjg",
+    "title": "My Thunderbird (John Hiatt cover)",
+    "description": "A cover I made in my home studio."
+  },
+  {
+    "sort": "00002",
+    "type": "image",
+    "src": "/assets/openmic.jpg",
+    "title": "Open Mic Hosting",
+    "alt": "I host a bi-weekly open mic night at SouthernEaze in Lutz, FL.",
+    "description": "I host a bi-weekly open mic night at SouthernEaze in Lutz, FL."
+  },
+  {
+    "sort": "00001",
+    "type": "image",
+    "src": "/assets/ootbgroup.jpg",
+    "title": "Out of the Blue Group Photo",
+    "alt": "I am part of \"Out of the Blue\", a group of musicians that play a variety of instruments and music styles.",
+    "description": "I am part of \"Out of the Blue\", a group of musicians. Here we are after a monthly gig we play on the patio of the Tampa Wine Room."
+  }
+]
