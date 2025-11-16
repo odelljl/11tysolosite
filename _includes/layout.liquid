@@ -8,7 +8,17 @@
     <style>
       body {
         font-family: ui-sans-serif, system-ui, sans-serif;
+        /* Fallback for very old browsers */
         background-image: url('/assets/background.png');
+        /* Prefer WebP where supported with graceful step-down to PNG */
+        background-image: -webkit-image-set(
+          url('/assets/background.webp') 1x,
+          url('/assets/background.png') 1x
+        );
+        background-image: image-set(
+          url('/assets/background.webp') 1x,
+          url('/assets/background.png') 1x
+        );
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
