@@ -4,8 +4,7 @@ title: Events
 permalink: /events/index.html
 ---
 {%- comment -%}
-  LiquidJS (used by Eleventy) doesn't support piping filters inside where_exp expressions.
-  So we avoid where_exp and do comparisons inside loops using epoch seconds.
+  Pull evenst from Facebook OOTB
 {%- endcomment -%}
 
 <div class='sk-fb-event' data-embed-id='25622128'></div>
@@ -13,76 +12,3 @@ permalink: /events/index.html
   src='https://widgets.sociablekit.com/facebook-page-events/widget.js'
   defer
 ></script>
-{% comment %}{%- assign now_epoch = 'now' | date: '%s' | plus: 0 -%}{% endcomment %}
-{% comment %}{%- assign events_sorted = events | sort: 'date' -%}{% endcomment %}
-{% comment %}{% endcomment %}
-{% comment %}{%- comment -%} Pre-count upcoming and past to drive empty-state logic {%- endcomment -%}{% endcomment %}
-{% comment %}{%- assign upcoming_count = 0 -%}{% endcomment %}
-{% comment %}{%- for e in events -%}{% endcomment %}
-{% comment %}{%- assign e_epoch = e.date | date: '%s' | plus: 0 -%}{% endcomment %}
-{% comment %}{%- if e_epoch >= now_epoch -%}{% endcomment %}
-{% comment %}{%- assign upcoming_count = upcoming_count | plus: 1 -%}{% endcomment %}
-{% comment %}{%- endif -%}{% endcomment %}
-{% comment %}{%- endfor -%}{% endcomment %}
-{% comment %}{% endcomment %}
-{% comment %}<div class='max-w-5xl mx-auto'>{% endcomment %}
-{% comment %}<h2 class='text-2xl font-bold mb-4 text-amber-900'>Upcoming Events</h2>{% endcomment %}
-{% comment %}{% if upcoming_count > 0 %}{% endcomment %}
-{% comment %}<ul class='space-y-3'>{% endcomment %}
-{% comment %}{% for e in events_sorted %}{% endcomment %}
-{% comment %}{% assign e_epoch = e.date | date: '%s' | plus: 0 %}{% endcomment %}
-{% comment %}{% if e_epoch >= now_epoch %}{% endcomment %}
-{% comment %}<li class='bg-white/90 rounded-lg p-4 shadow border border-amber-200/50'>{% endcomment %}
-{% comment %}<div class='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2'>{% endcomment %}
-{% comment %}<div>{% endcomment %}
-{% comment %}<div class='font-semibold text-amber-900'>{{ e.title }}</div>{% endcomment %}
-{% comment %}<div class='text-sm text-amber-700/80'>{% endcomment %}
-{% comment %}{{ e.date | date: '%A, %B %e, %Y @ %l:%M %p' }}{% endcomment %}
-{% comment %}{% if e.venue %} · {{ e.venue }}{% endif %}{% endcomment %}
-{% comment %}{% if e.city %} · {{ e.city }}{% endif %}{% endcomment %}
-{% comment %}</div>{% endcomment %}
-{% comment %}{% if e.notes %}{% endcomment %}
-{% comment %}<div class='text-sm text-gray-600 mt-1'>{{ e.notes }}</div>{% endcomment %}
-{% comment %}{% endif %}{% endcomment %}
-{% comment %}</div>{% endcomment %}
-{% comment %}{% if e.url %}{% endcomment %}
-{% comment %}<a{% endcomment %}
-{% comment %}href='{{ e.url }}'{% endcomment %}
-{% comment %}class='self-start sm:self-auto bg-amber-700/10 hover:bg-amber-700/20 text-amber-800 font-medium px-3 py-2 rounded-lg border border-amber-200 transition'{% endcomment %}
-{% comment %}>Details</a{% endcomment %}
-{% comment %}>{% endcomment %}
-{% comment %}{% endif %}{% endcomment %}
-{% comment %}</div>{% endcomment %}
-{% comment %}</li>{% endcomment %}
-{% comment %}{% endif %}{% endcomment %}
-{% comment %}{% endfor %}{% endcomment %}
-{% comment %}</ul>{% endcomment %}
-{% comment %}{% else %}{% endcomment %}
-{% comment %}<p class='text-gray-600'>No upcoming events right now — check back soon!</p>{% endcomment %}
-{% comment %}{% endif %}{% endcomment %}
-{% comment %}{% endcomment %}
-{% comment %}{%- comment -%} Past events (reverse chronological) {%- endcomment -%}{% endcomment %}
-{% comment %}{%- assign past_count = 0 -%}{% endcomment %}
-{% comment %}{%- for e in events -%}{% endcomment %}
-{% comment %}{%- assign e_epoch = e.date | date: '%s' | plus: 0 -%}{% endcomment %}
-{% comment %}{%- if e_epoch < now_epoch -%}{% endcomment %}
-{% comment %}{%- assign past_count = past_count | plus: 1 -%}{% endcomment %}
-{% comment %}{%- endif -%}{% endcomment %}
-{% comment %}{%- endfor -%}{% endcomment %}
-{% comment %}{% endcomment %}
-{% comment %}{% if past_count > 0 %}{% endcomment %}
-{% comment %}<h3 class='text-xl font-semibold mt-8 mb-3 text-amber-900'>Past Events</h3>{% endcomment %}
-{% comment %}<ul class='space-y-2'>{% endcomment %}
-{% comment %}{% assign events_sorted_desc = events_sorted | reverse %}{% endcomment %}
-{% comment %}{% for e in events_sorted_desc %}{% endcomment %}
-{% comment %}{% assign e_epoch = e.date | date: '%s' | plus: 0 %}{% endcomment %}
-{% comment %}{% if e_epoch < now_epoch %}{% endcomment %}
-{% comment %}<li class='text-sm text-gray-600'>{% endcomment %}
-{% comment %}{{ e.date | date: '%Y-%m-%d' }} — {{ e.title -}}{% endcomment %}
-{% comment %}{%- if e.venue %} @ {{ e.venue }}{% endif %}{% endcomment %}
-{% comment %}</li>{% endcomment %}
-{% comment %}{% endif %}{% endcomment %}
-{% comment %}{% endfor %}{% endcomment %}
-{% comment %}</ul>{% endcomment %}
-{% comment %}{% endif %}{% endcomment %}
-{% comment %}</div>{% endcomment %}
