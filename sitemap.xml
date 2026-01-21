@@ -1,0 +1,16 @@
+---
+eleventyExcludeFromCollections: true
+permalink: "/sitemap.xml"
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for page in collections.all %}
+  {% if page.url and page.url != '/404.html' and page.data.draft != true and page.data.eleventyExcludeFromCollections != true %}
+  <url>
+    <loc>{{ site.url }}{{ page.url }}</loc>
+    {% if page.date %}<lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>{% endif %}
+  </url>
+  {% endif %}
+{% endfor %}
+</urlset>
