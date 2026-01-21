@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Media</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <script src='https://cdn.tailwindcss.com?plugins=typography'></script>
+    <style>
+      body {
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        /* Fallback for very old browsers */
+        background-image: url('/assets/background.png');
+        /* Prefer WebP where supported with graceful step-down to PNG */
+        background-image: -webkit-image-set(
+          url('/assets/background.webp') 1x,
+          url('/assets/background.png') 1x
+        );
+        background-image: image-set(
+          url('/assets/background.webp') 1x,
+          url('/assets/background.png') 1x
+        );
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body class='text-gray-800 font-sans leading-relaxed'>
+    <header class='bg-gradient-to-r from-amber-50/90 to-stone-100/80 shadow-lg py-4 px-6 mb-8'>
+      <div class='max-w-7xl mx-auto flex items-center justify-between'>
+        <div class='flex items-center gap-3'>
+          <picture>
+            <source srcset='/assets/JeffOdellSolo.webp' type='image/webp'>
+            <img
+              src='/assets/JeffOdellSolo.png'
+              alt='Jeff Odell Solo logo'
+              class='h-12 w-auto object-contain shrink-0'
+              loading='eager'
+              decoding='async'
+            >
+          </picture>
+          <h1 class='text-2xl sm:text-3xl leading-tight font-extrabold tracking-tight text-amber-800 sm:text-transparent sm:bg-clip-text sm:bg-[linear-gradient(90deg,theme(colors.amber.700)_0%,theme(colors.amber.600)_33%,theme(colors.amber.500)_66%,theme(colors.stone.600)_100%)] drop-shadow-sm'>
+            Media
+          </h1>
+        </div>
+        <nav class='flex gap-4'>
+          
+            <a
+              href='/'
+              class='bg-amber-700/10 hover:bg-amber-700/20 backdrop-blur-sm text-amber-800 font-semibold px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105 shadow-md border border-amber-200'
+            >
+              Home
+            </a>
+          
+          
+            <a
+              href='/events/'
+              class='bg-amber-700/10 hover:bg-amber-700/20 backdrop-blur-sm text-amber-800 font-semibold px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105 shadow-md border border-amber-200'
+            >
+              Events
+            </a>
+          
+          
+          
+            <a
+              href='/posts/'
+              class='bg-amber-700/10 hover:bg-amber-700/20 backdrop-blur-sm text-amber-800 font-semibold px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105 shadow-md border border-amber-200'
+            >
+              Blog
+            </a>
+          
+        </nav>
+      </div>
+    </header>
+
+    <main class='w-full px-4 flex-grow'>
+      <article class='bg-white/90 backdrop-blur-sm rounded-lg p-6 shadow-lg'>
+        <div class='max-w-5xl mx-auto'>
+  <h2 class='text-2xl font-bold mb-4 text-amber-900'>Media</h2>
+  
+  
+    <div class='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+      
+        <div class='bg-gradient-to-br from-amber-50/80 to-stone-100/80 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-amber-200/50'>
+          
+            <div class='relative w-full' style='padding-top: 56.25%'>
+              <iframe
+                class='absolute top-0 left-0 w-full h-full rounded-md'
+                src='https://www.youtube.com/embed/NGMesPoqSjg'
+                title='My Thunderbird (John Hiatt cover)'
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                allowfullscreen
+              ></iframe>
+            </div>
+          
+          
+            <div class='mt-3 font-semibold text-amber-900'>My Thunderbird (John Hiatt cover)</div>
+          
+          
+            <div class='text-sm text-gray-700 mt-1'>A cover I made in my home studio.</div>
+          
+        </div>
+      
+        <div class='bg-gradient-to-br from-amber-50/80 to-stone-100/80 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-amber-200/50'>
+          
+            <div class='overflow-hidden rounded-md'>
+              <img
+                src='/assets/openmic.jpg'
+                alt='I host a bi-weekly open mic night at SouthernEaze in Lutz, FL.'
+                class='w-full h-auto block'
+              >
+            </div>
+          
+          
+            <div class='mt-3 font-semibold text-amber-900'>Open Mic Hosting</div>
+          
+          
+            <div class='text-sm text-gray-700 mt-1'>I host a bi-weekly open mic night at SouthernEaze in Lutz, FL.</div>
+          
+        </div>
+      
+        <div class='bg-gradient-to-br from-amber-50/80 to-stone-100/80 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-amber-200/50'>
+          
+            <div class='overflow-hidden rounded-md'>
+              <img
+                src='/assets/ootbgroup.jpg'
+                alt='I am part of &#34;Out of the Blue&#34;, a group of musicians that play a variety of instruments and music styles.'
+                class='w-full h-auto block'
+              >
+            </div>
+          
+          
+            <div class='mt-3 font-semibold text-amber-900'>Out of the Blue Group Photo</div>
+          
+          
+            <div class='text-sm text-gray-700 mt-1'>I am part of "Out of the Blue", a group of musicians. Here we are after a monthly gig we play on the patio of the Tampa Wine Room.</div>
+          
+        </div>
+      
+    </div>
+  
+</div>
+
+      </article>
+    </main>
+
+    <footer class='mt-12 text-sm text-center text-gray-500 py-6 bg-white/80 backdrop-blur-sm'>
+      &copy;  Jeff Odell. All rights reserved.
+    </footer>
+  </body>
+</html>
